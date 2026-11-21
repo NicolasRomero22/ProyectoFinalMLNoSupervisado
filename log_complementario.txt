@@ -1,0 +1,55 @@
+== 1. Estabilidad (ARI entre 20 semillas distintas, n_init=1) ==
+ k  ARI_medio  ARI_minimo
+ 2      0.995       0.991
+ 3      0.636       0.353
+ 4      0.644       0.339
+
+== 2. Perfil (gasto medio, m.u.) y tamano por segmento ==
+
+k = 2  (silueta = 0.290)
+       Fresh     Milk  Grocery  Frozen  Detergents_Paper  Delicassen    n  %Retail
+seg                                                                               
+0    13973.0   2402.0   2919.0  3706.0             492.0      1038.0  252      3.0
+1     9356.0  10346.0  14697.0  2222.0            6085.0      2177.0  188     71.0
+
+k = 3  (silueta = 0.258)
+       Fresh     Milk  Grocery  Frozen  Detergents_Paper  Delicassen    n  %Retail
+seg                                                                               
+0    17182.0  10658.0  13381.0  4181.0            5004.0      2867.0  145     61.0
+1    11993.0   1995.0   2497.0  3278.0             426.0       893.0  212      1.0
+2     2967.0   7011.0  12397.0   608.0            5446.0       795.0   83     60.0
+
+k = 4  (silueta = 0.188)
+       Fresh     Milk  Grocery  Frozen  Detergents_Paper  Delicassen    n  %Retail
+seg                                                                               
+0     2809.0   7062.0  12349.0   566.0            5343.0       636.0   61     66.0
+1    19374.0   4068.0   4445.0  6184.0             723.0      2323.0  129      5.0
+2     9633.0   1570.0   2072.0  2175.0             345.0       585.0  132      1.0
+3    11339.0  11759.0  16088.0  1968.0            6806.0      2164.0  118     80.0
+
+== 3. Barrido de DBSCAN ==
+ eps  min_samples  clusters  ruido  silhouette
+ 0.8            5         3    230       0.288
+ 0.8            8         2    293       0.507
+ 0.8           12         2    346       0.552
+ 1.0            5         1    124         NaN
+ 1.0            8         2    146       0.245
+ 1.0           12         1    183         NaN
+ 1.2            5         1     79         NaN
+ 1.2            8         1     85         NaN
+ 1.2           12         1    105         NaN
+ 1.5            5         1     41         NaN
+ 1.5            8         1     45         NaN
+ 1.5           12         1     51         NaN
+ 1.8            5         1     22         NaN
+ 1.8            8         1     24         NaN
+ 1.8           12         1     27         NaN
+ 2.0            5         1     12         NaN
+ 2.0            8         1     16         NaN
+ 2.0           12         1     17         NaN
+
+== 4. Silueta de K-Means (k=2) con y sin log1p ==
+sin log1p: silueta = 0.614, tamanos = [36, 404]
+con log1p: silueta = 0.290, tamanos = [252, 188]
+
+Listo.
